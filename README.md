@@ -4,7 +4,7 @@ _A production-style data product that ingests world news in real time, enriches 
 
 ## Why It Stands Out
 - **Hybrid ETL pipeline**: REST ingestion → cleansing → TextRank summarization → optional Kafka streaming → MySQL persistence.
-- **Recruiter-friendly UI**: Bootstrap 5 pages for discovery (`/`), search results (`/search`), and curated summaries (`/summaries`).
+- **Friendly UI**: Bootstrap 5 pages for discovery (`/`), search results (`/search`), and curated summaries (`/summaries`).
 - **Cloud-ready configuration**: every secret (API keys, DB creds, broker hosts) lives in `.env`, making Docker, Render, or EC2 deployments frictionless.
 - **Extensible analytics**: PySpark hooks are scaffolded so you can bolt on model training or feature engineering without reworking the core app.
 - **Tested fail-safes**: graceful degradation when Kafka/Spark aren’t installed, HTML sanitization, and defensive DB handling keep demos smooth.
@@ -89,4 +89,4 @@ python app.py
 
 ---
 
-_Questions or want to see it live? Ping me at [LinkedIn](https://www.linkedin.com/) or open an issue in the repo._
+_Questions or want to see it live? Ping me at [LinkedIn](https://www.linkedin.com/in/maneesh3310/) or open an issue in the repo._
