@@ -1,0 +1,11 @@
+flask==2.3.3
+flask-bootstrap==3.3.7.1
+requests==2.31.0
+nltk==3.8.1
+numpy
+networkx==3.1
+kafka-python==2.0.2
+pyspark==3.4.1
+mysql-connector-python==8.1.0
+python-dotenv==1.0.0
+werkzeug==2.3.7
