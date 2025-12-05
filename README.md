@@ -23,6 +23,28 @@ Kafka consumer -> MySQL (news_etl DB) -> Flask views & REST API
 | Storage | Schema-managed article warehouse | `mysql-connector-python` |
 | Presentation | Responsive Bootstrap UI + JSON API | Flask, Jinja, Bootstrap 5 |
 
+## Product Tour (Screenshots)
+
+### Landing Page
+The main hero section with search functionality allows users to discover news by topic or category.
+
+![Landing Page - Hero/Search](docs/screenshots/landing.png)
+
+### Category Selection
+Browse news by pre-defined categories with intuitive tile-based navigation.
+
+![Category Tiles](docs/screenshots/categories.png)
+
+### Search Results
+Articles are displayed in a clean, responsive card grid showing headlines, sources, and publish dates.
+
+![Search Results Cards Grid](docs/screenshots/cards.png)
+
+### AI-Generated Summaries
+View processed article summaries powered by TextRank NLP, making it easy to scan key points.
+
+![Processed Summaries List](docs/screenshots/summaries.png)
+
 ## Quickstart
 1. **Clone + env setup**
    ```bash
