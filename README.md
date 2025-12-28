@@ -4,10 +4,10 @@ _A production-style data product that ingests world news in real time, enriches 
 
 ## Why It Stands Out
 - **Hybrid ETL pipeline**: REST ingestion → cleansing → TextRank summarization → optional Kafka streaming → MySQL persistence.
-- **Friendly UI**: Bootstrap 5 pages for discovery (`/`), search results (`/search`), and curated summaries (`/summaries`).
-- **Cloud-ready configuration**: every secret (API keys, DB creds, broker hosts) lives in `.env`, making Docker, Render, or EC2 deployments frictionless.
+- **Friendly UI**:  Bootstrap 5 pages for discovery (`/`), search results (`/search`), and curated summaries (`/summaries`).
+- **Cloud-ready configuration**: every secret (API keys, DB creds, broker hosts) lives in `.env`, making Docker, Render, or EC2 deployments frictionless. 
 - **Extensible analytics**: PySpark hooks are scaffolded so you can bolt on model training or feature engineering without reworking the core app.
-- **Tested fail-safes**: graceful degradation when Kafka/Spark aren’t installed, HTML sanitization, and defensive DB handling keep demos smooth.
+- **Tested fail-safes**: graceful degradation when Kafka/Spark aren't installed, HTML sanitization, and defensive DB handling keep demos smooth.
 
 ## Architecture at a Glance
 ```
@@ -22,6 +22,20 @@ Kafka consumer -> MySQL (news_etl DB) -> Flask views & REST API
 | Streaming (opt) | Publish/consume JSON events | `confluent-kafka` |
 | Storage | Schema-managed article warehouse | `mysql-connector-python` |
 | Presentation | Responsive Bootstrap UI + JSON API | Flask, Jinja, Bootstrap 5 |
+
+## Screenshots
+
+### Landing Page
+![Landing Page](outputs/screenshots/landing.png)
+
+### Article Cards
+![Article Cards](outputs/screenshots/cards.png)
+
+### Categories View
+![Categories](outputs/screenshots/categories.png)
+
+### Processed Summaries
+![Processed Summaries](outputs/screenshots/Processed_summaries.png)
 
 ## Quickstart
 1. **Clone + env setup**
@@ -66,7 +80,7 @@ Kafka consumer -> MySQL (news_etl DB) -> Flask views & REST API
 | `MYSQL_DB_NAME` | Target schema (auto-created). | `news_etl` |
 
 ## Optional Upgrades
-- **Docker Compose**: add `mysql`, `zookeeper`, `kafka`, and the Flask app as services for one-command spin up.
+- **Docker Compose**: add `mysql`, `zookeeper`, `kafka`, and the Flask app as services for one-command spin up. 
 - **Scheduled jobs**: wire `cron`/`Airflow` to hit `/search` for curated terms every hour.
 - **Analytics notebooks**: point PySpark to the same MySQL warehouse for feature engineering or trend analysis.
 
@@ -74,14 +88,14 @@ Kafka consumer -> MySQL (news_etl DB) -> Flask views & REST API
 ```bash
 source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env  # keep .env private
+cp . env.example .env  # keep .env private
 python app.py
 ```
 
 ## Deployment Tips
-- Use managed MySQL (RDS, PlanetScale) and set the host/user/password in the platform’s secret store.
-- For container platforms, pass env vars through orchestrator secrets; `python-dotenv` ensures local/dev parity.
-- If Kafka isn’t available in prod, leave `ENABLE_KAFKA=false`—the app downgrades to a direct DB ingest path.
+- Use managed MySQL (RDS, PlanetScale) and set the host/user/password in the platform's secret store.
+- For container platforms, pass env vars through orchestrator secrets; `python-dotenv` ensures local/dev parity. 
+- If Kafka isn't available in prod, leave `ENABLE_KAFKA=false`—the app downgrades to a direct DB ingest path.
 
 ## Version Control Hygiene
 - `.env`, virtual environments, compiled files, and local DB artifacts are ignored via `.gitignore`.
